@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableDiscoveryClient // 开启nacos服务注册于发现功能
-public class Application {
+public class NacosDiscoveryProviderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(NacosDiscoveryProviderApplication.class, args);
     }
 
     @RestController
@@ -19,7 +19,7 @@ public class Application {
 
         @GetMapping("/echo/{value}")
         public String echo(@PathVariable String value) {
-            return value;
+            return "Hi, I'm nacos-discovery-provider, I received value: " + value;
         }
     }
 }
