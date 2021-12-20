@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8085 # sentinel控制台地址
+  application:
+    name: sentinel-example
+
+server:
+  port: 8086
