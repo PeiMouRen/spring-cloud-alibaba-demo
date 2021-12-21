@@ -6,7 +6,6 @@
 
     <modules>
         <module>nacos-discovery-provider</module>
-        <module>nacos-discovery-provider-copy</module>
         <module>nacos-discovery-consumer</module>
         <module>sentinel</module>
     </modules>
@@ -31,10 +30,6 @@
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

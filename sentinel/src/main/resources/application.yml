@@ -4,6 +4,8 @@ spring:
       transport:
         port: 8719 # 在应用对应的机器上启动一个http serve，与sentinel控制台交互（默认为8719，可自动向下探测可用的端口号）
         dashboard: localhost:8085 # sentinel控制台地址
+#      filter:
+#        enabled: false
     gateway:
       discovery:
         locator:

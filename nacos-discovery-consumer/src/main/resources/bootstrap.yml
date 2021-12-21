@@ -7,5 +7,5 @@ spring:
         server-addr: 127.0.0.1:8848 #指定nacos服务的地址
 
 server:
-  port: 8085
+  port: 8088
 

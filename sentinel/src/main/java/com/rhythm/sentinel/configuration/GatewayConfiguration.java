@@ -17,29 +17,29 @@ import java.util.List;
 /**
  * 网关配置
  */
-@Configuration
+//@Configuration
 public class GatewayConfiguration {
 
-    private final List<ViewResolver> viewResolvers;
-    private final ServerCodecConfigurer serverCodecConfigurer;
+//    private final List<ViewResolver> viewResolvers;
+//    private final ServerCodecConfigurer serverCodecConfigurer;
+//
+//    public GatewayConfiguration(ObjectProvider<List<ViewResolver>> viewResolversProvider,
+//                                ServerCodecConfigurer serverCodecConfigurer) {
+//        this.viewResolvers = viewResolversProvider.getIfAvailable(Collections::emptyList);
+//        this.serverCodecConfigurer = serverCodecConfigurer;
+//    }
+//
+//    @Bean
+//    @Order(Ordered.HIGHEST_PRECEDENCE) // order标记组件加载的优先级，值越小，优先级越高
+//    public SentinelGatewayBlockExceptionHandler sentinelGatewayBlockExceptionHandler() {
+//        // Register the block exception handler for Spring Cloud Gateway.
+//        return new SentinelGatewayBlockExceptionHandler(viewResolvers, serverCodecConfigurer);
+//    }
 
-    public GatewayConfiguration(ObjectProvider<List<ViewResolver>> viewResolversProvider,
-                                ServerCodecConfigurer serverCodecConfigurer) {
-        this.viewResolvers = viewResolversProvider.getIfAvailable(Collections::emptyList);
-        this.serverCodecConfigurer = serverCodecConfigurer;
-    }
-
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE) // order标记组件加载的优先级，值越小，优先级越高
-    public SentinelGatewayBlockExceptionHandler sentinelGatewayBlockExceptionHandler() {
-        // Register the block exception handler for Spring Cloud Gateway.
-        return new SentinelGatewayBlockExceptionHandler(viewResolvers, serverCodecConfigurer);
-    }
-
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public GlobalFilter sentinelGatewayFilter() {
-        return new SentinelGatewayFilter();
-    }
+//    @Bean
+//    @Order(Ordered.HIGHEST_PRECEDENCE)
+//    public GlobalFilter sentinelGatewayFilter() {
+//        return new SentinelGatewayFilter();
+//    }
 
 }
