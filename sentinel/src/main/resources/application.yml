@@ -2,9 +2,28 @@ spring:
   cloud:
     sentinel:
       transport:
+        port: 8719 # 在应用对应的机器上启动一个http serve，与sentinel控制台交互（默认为8719，可自动向下探测可用的端口号）
         dashboard: localhost:8085 # sentinel控制台地址
-  application:
-    name: sentinel-example
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 允许gateway从nacos上获取服务列表
+      routes:
+        - id: service-provider # 路由 ID，唯一 没有固定规则,建议配合服务名
+          # 支持普通url和lb://注册中心服务名称
+          uri: lb://service-provider
+          predicates: # 路由条件，根据匹配结果进行路由
+            - Path=/service-provider/**  # 路径相匹配的进行路由，会添加到uri后
+          filters:
+            # 自动去掉一节路径, 转发到uri后自动去掉service-provider, 1代表截取路径的个数
+            - StripPrefix=1
+        - id: service-consumer
+          uri: lb://service-consumer
+          predicates:
+            - Path=/service-consumer/**
+          filters:
+            - StripPrefix=1
 
-server:
-  port: 8086
+feign:
+  sentinel:
+    enabled: true # 开启sentinel对feign的支持

@@ -1,17 +1,13 @@
-package com.rhythm.sentinel;
+package com.rhythm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients // 开启feign
-@EnableDiscoveryClient
-public class SentinelApplication {
-
+@EnableDiscoveryClient // 开启nacos服务注册于发现功能
+public class ProviderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SentinelApplication.class, args);
+        SpringApplication.run(ProviderApplication.class, args);
     }
-
 }

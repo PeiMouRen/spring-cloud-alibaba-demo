@@ -22,7 +22,7 @@ public class TestController {
 
     @GetMapping("/echo/{value}")
     public String echo(@PathVariable String value) {
-        return "Hi, I'm nacos-discovery-provider1, I received value: " + value;
+        return "Hi, I'm nacos-discovery-provider2, I received value: " + value;
     }
 
 }

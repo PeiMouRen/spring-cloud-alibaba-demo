@@ -19,6 +19,11 @@ public class TestController {
     @Autowired
     private EchoService echoService;
 
+    @GetMapping("/echo/{str}")
+    public String echo(@PathVariable("str") String str) {
+        return "I'm service-consumer, I received value: " + str;
+    }
+
     @GetMapping("rest/{value}")
     public String rest(@PathVariable("value") String value) {
         return restTemplate.getForObject("http://service-provider/echo/" + value, String.class);
